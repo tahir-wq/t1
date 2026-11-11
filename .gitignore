@@ -1,0 +1,10 @@
+node_modules/
+.venv/
+ai/.venv/
+.env
+data/*.db
+data/*.db-shm
+data/*.db-wal
+ai/assistant_history.db*
+public/uploads/*
+!public/uploads/.gitkeep

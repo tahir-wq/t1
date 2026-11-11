@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reusable AI Assistant Example</title>
+  <link rel="stylesheet" href="assistant_widget.css">
+</head>
+<body>
+  <main>
+    <h1>My Website</h1>
+    <div id="my-ai-assistant"></div>
+  </main>
+  <script src="assistant_widget.js"></script>
+  <script>
+    new TradebrainAssistant("#my-ai-assistant", {
+      apiUrl: "http://127.0.0.1:8788"
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" fill="none">
+  <rect width="760" height="440" fill="#EAE5DC"/>
+  <rect x="72" y="46" width="616" height="348" rx="8" fill="#FCFBF8"/>
+  <path d="M80 46h600a8 8 0 0 1 8 8v28H72V54a8 8 0 0 1 8-8Z" fill="#F2EFE9"/>
+  <circle cx="92" cy="64" r="4" fill="#C5B9AB"/>
+  <circle cx="108" cy="64" r="4" fill="#C5B9AB"/>
+  <circle cx="124" cy="64" r="4" fill="#C5B9AB"/>
+  <text x="102" y="111" fill="#292520" font-family="Georgia,serif" font-size="21" font-weight="700">swift cart</text>
+  <text x="515" y="109" fill="#716B64" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">CLOTHING</text>
+  <text x="585" y="109" fill="#716B64" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">WATCHES</text>
+  <path d="M96 127h568" stroke="#DED9D1"/>
+  <text x="98" y="165" fill="#292520" font-family="Georgia,serif" font-size="22">Find your everyday favorite.</text>
+  <text x="99" y="184" fill="#827970" font-family="Arial,sans-serif" font-size="10">A concept illustration for a clothing and watch shopping project</text>
+  <rect x="98" y="207" width="171" height="145" rx="4" fill="#E8E2D9"/>
+  <rect x="289" y="207" width="171" height="145" rx="4" fill="#E8E2D9"/>
+  <rect x="480" y="207" width="171" height="145" rx="4" fill="#E8E2D9"/>
+  <path d="m149 237 19 9 18-9 22 17-13 18-9-6v54h-37v-54l-9 6-13-18 22-17Z" fill="#9A8170"/>
+  <path d="M342 233h25v12h-25zm2 12h21l7 63h-35l7-63Z" fill="#FCFBF8" stroke="#927969" stroke-width="4"/>
+  <circle cx="354.5" cy="273" r="8" stroke="#927969" stroke-width="3"/>
+  <path d="m540 243 22-14 22 14 15 34-17 7-7-13v41h-28v-41l-7 13-17-7 17-34Z" fill="#718077"/>
+  <path d="M110 370h77m102 0h77m102 0h77" stroke="#D8D1C7" stroke-width="2"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" fill="none">
+  <rect width="760" height="440" fill="#E8E5DC"/>
+  <path d="M0 338c114-39 195 30 302-8 126-44 236-43 458 12v98H0v-102Z" fill="#DCDDD3"/>
+  <path d="m0 367 122-23 81 20 119-35 104 24 113-44 103 20 118-29" stroke="#B6B9AC" stroke-width="2"/>
+  <rect x="189" y="83" width="382" height="252" rx="13" fill="#292F2B"/>
+  <rect x="204" y="98" width="352" height="222" rx="8" fill="#34423B"/>
+  <rect x="276" y="151" width="207" height="124" rx="8" fill="#D7D1C4"/>
+  <rect x="292" y="167" width="175" height="92" rx="4" fill="#526A5A"/>
+  <rect x="324" y="186" width="111" height="54" rx="5" fill="#232B27"/>
+  <text x="341" y="210" fill="#AEBBAE" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">ARDUINO</text>
+  <text x="351" y="227" fill="#D8D1C4" font-family="Arial,sans-serif" font-size="8" letter-spacing="1">PROJECT</text>
+  <path d="M290 166v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29m18 29v-29" stroke="#C9A96E" stroke-width="3"/>
+  <path d="M290 261v28m18-28v28m18-28v28m18-28v28m18-28v28m18-28v28m18-28v28m18-28v28m18-28v28m18-28v28" stroke="#C9A96E" stroke-width="3"/>
+  <path d="M204 149h-31v-29h-28m411 29h32v-29h28M204 267h-31v29h-28m411-29h32v29h28" stroke="#927969" stroke-width="3"/>
+  <circle cx="145" cy="120" r="8" fill="#C9A96E"/>
+  <circle cx="616" cy="120" r="8" fill="#718077"/>
+  <circle cx="145" cy="296" r="8" fill="#718077"/>
+  <circle cx="616" cy="296" r="8" fill="#C9A96E"/>
+  <text x="380" y="372" fill="#48443D" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" text-anchor="middle">CODE · CIRCUIT · ASSEMBLY</text>
+</svg>

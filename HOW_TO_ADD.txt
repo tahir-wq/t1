@@ -1,0 +1,132 @@
+REUSABLE AI ASSISTANT — INTEGRATION GUIDE
+=========================================
+
+CONTENTS
+--------
+assistant_server.py     Flask API and local Ollama connection
+assistant_widget.js     Embeddable browser chat widget
+assistant_widget.css    Widget styles
+example.html            Basic standalone integration example
+requirements.txt        Python dependencies
+
+This folder is a separate copy of the AI assistant module. The original
+project files have not been changed.
+
+WHAT YOU NEED
+-------------
+- Python 3.10 or later
+- Ollama installed on the computer that will run the assistant API
+- A chat model downloaded in Ollama, for example qwen2.5:1.5b
+
+START THE ASSISTANT API ON WINDOWS
+----------------------------------
+Open PowerShell in this folder and run:
+
+    py -m venv .venv
+    .venv\Scripts\Activate.ps1
+    pip install -r requirements.txt
+    ollama pull qwen2.5:1.5b
+    python assistant_server.py
+
+Keep the terminal running. The API listens locally at:
+
+    http://127.0.0.1:8788
+
+Check that it is running by opening http://127.0.0.1:8788/health.
+
+ADD IT TO A WEBSITE
+-------------------
+1. Copy assistant_widget.js and assistant_widget.css into the website's
+   publicly served files folder (often named static, public, or assets).
+2. Put a container where the chat should appear in the page:
+
+       <div id="my-ai-assistant"></div>
+
+3. Before the closing </body> tag, load the styles and script and initialize
+   the widget. Change the asset paths to match your website:
+
+       <link rel="stylesheet" href="/static/assistant_widget.css">
+       <script src="/static/assistant_widget.js"></script>
+       <script>
+         new TradebrainAssistant("#my-ai-assistant", {
+           apiUrl: "http://127.0.0.1:8788"
+         });
+       </script>
+
+4. Start the website and assistant API, then send a test message.
+
+The page can use any framework or none: it only needs to load the CSS and
+JavaScript, provide a container element, and initialize the widget. In a
+React, Vue, or other single-page app, create the widget after its container
+has been added to the page and destroy/remove that container when the page
+component is removed. See example.html for the complete basic page.
+
+For local development, serve the website through a web server (for example,
+VS Code Live Server); opening the page directly with file:// may block API
+requests.
+
+CONNECTING A DIFFERENT WEBSITE OR BACKEND
+-----------------------------------------
+The widget's apiUrl option is the base URL of the server. The server must
+provide these endpoints:
+
+    GET  /api/chat/history?conversation_id=550e8400-e29b-41d4-a716-446655440000
+    POST /api/chat
+
+POST /api/chat accepts JSON:
+
+    {"message":"Hello","language":"Auto Detect",
+     "conversation_id":"550e8400-e29b-41d4-a716-446655440000"}
+
+A successful response is JSON:
+
+    {"answer":"Hello! How can I help?","source":"your-model"}
+
+The history endpoint responds with JSON in this shape:
+
+    {"messages":[{"role":"user","content":"Hello"},
+                 {"role":"assistant","content":"Hi!"}]}
+
+Each browser session must create and reuse its own UUID conversation_id for
+both endpoints. The server validates it and keeps messages scoped to that
+conversation, so separate visitors do not share chat history.
+
+If your project already has a backend, you can implement these endpoints
+there and point apiUrl to it. If the website and API use different origins,
+configure the backend's CORS allowlist for the website's exact origin.
+
+CORS FOR LOCAL DEVELOPMENT
+--------------------------
+The API allows localhost and 127.0.0.1 on ports 3000, 5500, and 8000 by
+default. To allow a different local development origin, set its exact origin
+before starting the API. Example in PowerShell:
+
+    $env:ASSISTANT_ALLOWED_ORIGINS = "http://localhost:3000"
+    python assistant_server.py
+
+An origin includes the protocol, host, and port, but not a path.
+
+IMPORTANT FOR PUBLIC / PRODUCTION WEBSITES
+------------------------------------------
+This API is configured for local development and binds to 127.0.0.1 by
+default. Do not expose it directly to the public internet. CORS is not
+authentication, and the sample API does not include user login or API keys.
+For a live website, host the API behind your own HTTPS backend, add
+authentication and rate limits, and set apiUrl to that backend's HTTPS URL.
+A public HTTPS website also cannot normally make requests to an insecure
+http://127.0.0.1 endpoint.
+
+OPTIONAL SERVER SETTINGS
+------------------------
+OLLAMA_URL                 Ollama URL (default http://127.0.0.1:11434)
+OLLAMA_MODEL               Model name (default qwen2.5:1.5b)
+ASSISTANT_ALLOWED_ORIGINS  Comma-separated exact browser origins
+ASSISTANT_DATABASE         Optional path for the SQLite chat-history file
+HOST                       API bind host (default 127.0.0.1)
+PORT                       API port (default 8788)
+
+Chat history is stored locally in assistant_history.db. The assistant keeps
+the model loaded for ten minutes after a reply to make follow-up questions
+faster. It responds in the selected language (Auto Detect, English, or Urdu).
+This reusable module is a text-chat feature; other project-specific features
+are not included.
